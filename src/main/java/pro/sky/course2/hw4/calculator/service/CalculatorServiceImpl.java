@@ -1,9 +1,9 @@
 package pro.sky.course2.hw4.calculator.service;
 
-import java.util.Objects;
+import pro.sky.course2.hw4.calculator.exception.ZeroDivideException;
 
 @org.springframework.stereotype.Service
-public class ServiceImpl implements Service {
+public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public float getSum(float a, float b) {
@@ -16,12 +16,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public float getMultiply(float a, float b) {
-        return a * b;
-    }
+    public float getMultiply(float a, float b) { return a * b; }
 
     @Override
     public float getDivide(float a, float b) {
+        if (b == 0) {
+            throw new ZeroDivideException();
+        }
         return a / b;
     }
 }

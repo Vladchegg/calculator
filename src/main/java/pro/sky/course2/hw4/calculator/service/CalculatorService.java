@@ -1,6 +1,6 @@
 package pro.sky.course2.hw4.calculator.service;
 
-public interface Service {
+public interface CalculatorService {
     float getSum(float a, float b);
 
     float getMinus(float a,float b);

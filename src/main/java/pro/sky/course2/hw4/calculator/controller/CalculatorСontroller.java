@@ -4,17 +4,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pro.sky.course2.hw4.calculator.service.Service;
+import pro.sky.course2.hw4.calculator.service.CalculatorServiceImpl;
 
 import java.util.Objects;
 
 @RestController
 @RequestMapping("/calculator")
-public class Сontroller {
+public class CalculatorСontroller {
 
-    private final Service service;
+    private final CalculatorServiceImpl service;
 
-    public Сontroller(Service service) {
+    public CalculatorСontroller (CalculatorServiceImpl service) {
         this.service = service;
     }
 
@@ -55,8 +55,6 @@ public class Сontroller {
                              @RequestParam (required = false) Float num2) {
         if (Objects.isNull(num1) || Objects.isNull(num2)) {
             return "Неверно переданы параметры";
-        } else if (num2 == 0) {
-            return "Делить на ноль нельзя";
         }
         return num1 + " / " + num2 + " = " + service.getDivide(num1, num2);
         }
